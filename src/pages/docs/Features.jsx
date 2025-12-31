@@ -22,7 +22,44 @@ app = App()
 def get_data():
     return {"status": "success", "value": 42}
 
+# Global OS-level Shortcuts
+app.shortcut("Ctrl+Shift+P", lambda: app.toggle_visibility())
+
 app.run()`}</code></pre>
+
+      <h3>Global Shortcuts</h3>
+      <p>
+        Define keyboard shortcuts that work even when your application is not in focus. Perfect for launcher apps, quick capture tools, and system controllers.
+      </p>
+
+      <h3>Lifecycle Hooks</h3>
+      <p>
+        Ensure clean shutdowns by registering <code>@app.on_exit</code> callbacks. Perfect for saving state, closing database connections, or stopping background threads.
+      </p>
+      <pre><code className="language-python">{`@app.on_exit
+def cleanup():
+    print("Cleaning up resources...")
+    db.close()`}</code></pre>
+
+      <h3>System Integration</h3>
+      <p>
+        Deeply integrate with the host OS using native APIs.
+      </p>
+      <ul>
+        <li><strong>System Tray:</strong> <code>app.setup_tray_standard()</code> creates a tray icon with menu support.</li>
+        <li><strong>Native Dialogs:</strong> <code>app.dialog_open_file()</code>, <code>app.message_box()</code> for native UI interaction.</li>
+        <li><strong>Notifications:</strong> <code>app.system_notification()</code> for toast messages in Windows Action Center or macOS Notification Center.</li>
+      </ul>
+
+      <h3>Power Tools</h3>
+      <ul>
+        <li><strong>Deep Linking:</strong> <code>app.register_protocol()</code> and <code>app.state.launch_url</code> to handle custom URI schemes.</li>
+        <li><strong>Taskbar Progress:</strong> <code>window.set_taskbar_progress()</code> to show native progress in Windows Taskbar or macOS Dock.</li>
+        <li><strong>Binary Bridge:</strong> <code>window.serve_data()</code> for high-performance memory-to-webview binary streaming via <code>pytron://</code> protocol.</li>
+        <li><strong>Start on Boot:</strong> <code>app.set_start_on_boot(True)</code> for auto-launching on system startup.</li>
+        <li><strong>Daemon Mode:</strong> <code>app.hide()</code> and <code>app.show()</code> for running the app in the background.</li>
+      </ul>
+
 
       <h2>2. Pytron Client (The Bridge)</h2>
       <p>

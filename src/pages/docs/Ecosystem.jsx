@@ -46,18 +46,20 @@ console.log(pytron.state.user);`}</code></pre>
         </p>
         <pre><code className="language-bash">{`npm install pytron-ui`}</code></pre>
 
-        <pre><code className="language-jsx">{`import { PytronTitleBar,PytronMenuBar PytronSidebar, usePytron } from 'pytron-ui';
+        <pre><code className="language-jsx">{`import { PytronTitleBar, PytronMenuBar, PytronSidebar, usePytron, PytronContextMenu, PytronShortcutHandler } from 'pytron-ui';
 
 function App() {
   const { state, isLoading } = usePytron();
 
   return (
-          <>
+      <>
       {/* Draggable region with native window buttons */}
-      <PytronTitleBar title="My App" variant="windows">
-            {/*add child elements to title bar*/}
-      </PytronTitleBar>
+      <PytronTitleBar title="My App" variant="windows" />
       
+      {/* Global Context Menu & Shortcuts */}
+      <PytronContextMenu />
+      <PytronShortcutHandler />
+
       <PytronSidebar>
         <PytronSidebar.Item active>Dashboard</PytronSidebar.Item>
       </PytronSidebar>
@@ -68,6 +70,12 @@ function App() {
       </>
   );
 }`}</code></pre>
+
+        <h3>New Features</h3>
+        <ul>
+          <li><strong>ContextMenu:</strong> A fully customizable, native-feeling context menu replacement.</li>
+          <li><strong>ShortcutHandler:</strong> Seamlessly bridge React key events to Python backend commands.</li>
+        </ul>
       </div>
     </div>
   );
