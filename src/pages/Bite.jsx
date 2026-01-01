@@ -7,7 +7,7 @@ export default function BitePage() {
     const [release, setRelease] = useState(null);
 
     useEffect(() => {
-        fetch('https://api.github.com/repos/Ghua8088/Bite/releases/latest')
+        fetch('https://api.github.com/repos/Ghua8088/py-cast/releases/latest')
             .then(res => res.ok ? res.json() : null)
             .then(data => {
                 if (data && data.assets && data.assets.length > 0) {
