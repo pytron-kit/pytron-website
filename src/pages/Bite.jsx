@@ -88,7 +88,7 @@ export default function BitePage() {
                     </p>
 
                     <div style={{ display: 'flex', gap: '1rem' }}>
-                        <a href="https://github.com/Ghua8088/Bite" target="_blank" className="btn-primary" style={{
+                        <a href="https://github.com/Ghua8088/py-cast" target="_blank" className="btn-primary" style={{
                             padding: '0.8rem 2rem',
                             borderRadius: '0.75rem',
                             background: '#5e5ce6',
@@ -189,7 +189,7 @@ export default function BitePage() {
                     <p style={{ color: '#a1a1aa', marginBottom: '2rem' }}>Bite is open source. Clone, build, and run it locally.</p>
 
                     <CodeBlock code={`# 1. Clone the repository
-git clone https://github.com/Ghua8088/Bite.git
+git clone https://github.com/Ghua8088/py-cast.git
 
 # 2. Install Pytron Kit
 pip install pytron-kit
