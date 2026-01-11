@@ -66,7 +66,10 @@ async function waitForServer(url) {
         await waitForServer(BASE_URL);
         console.log('  Server is up!');
 
-        const browser = await puppeteer.launch({ headless: "new" });
+        const browser = await puppeteer.launch({
+            headless: "new",
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        });
         const page = await browser.newPage();
 
         for (const route of routes) {

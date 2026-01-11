@@ -19,42 +19,55 @@ export default function RequestsStudioPage() {
                 right: 0,
                 bottom: 0,
                 zIndex: 0,
-                background: `
-                    radial-gradient(circle at 0% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
-                    radial-gradient(circle at 100% 0%, rgba(34, 211, 238, 0.1) 0%, transparent 40%),
-                    radial-gradient(circle at 50% 50%, rgba(15, 15, 20, 1) 0%, rgba(2, 2, 3, 1) 100%)
-                `,
+                background: '#020203',
                 pointerEvents: 'none'
             }} />
 
-            {/* Mesh Gradient Accents */}
-            <div style={{
-                position: 'fixed',
-                top: '20%',
-                left: '-10%',
-                width: '60vw',
-                height: '60vw',
-                background: 'radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%)',
-                filter: 'blur(120px)',
-                zIndex: 0,
-                pointerEvents: 'none'
-            }} />
-            <div style={{
-                position: 'fixed',
-                bottom: '-10%',
-                right: '-10%',
-                width: '50vw',
-                height: '50vw',
-                background: 'radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, transparent 70%)',
-                filter: 'blur(120px)',
-                zIndex: 0,
-                pointerEvents: 'none'
-            }} />
+            {/* Animated Mesh Layers */}
+            <motion.div
+                animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 5, 0],
+                    x: [0, 30, 0],
+                    y: [0, -20, 0]
+                }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                style={{
+                    position: 'fixed',
+                    top: '-10%',
+                    left: '-10%',
+                    width: '70vw',
+                    height: '70vw',
+                    background: 'radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 60%)',
+                    filter: 'blur(100px)',
+                    zIndex: 0,
+                    pointerEvents: 'none'
+                }}
+            />
+            <motion.div
+                animate={{
+                    scale: [1, 1.1, 1],
+                    x: [0, -40, 0],
+                    y: [0, 30, 0]
+                }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                style={{
+                    position: 'fixed',
+                    bottom: '-15%',
+                    right: '-10%',
+                    width: '60vw',
+                    height: '60vw',
+                    background: 'radial-gradient(circle, rgba(34, 211, 238, 0.06) 0%, transparent 60%)',
+                    filter: 'blur(100px)',
+                    zIndex: 0,
+                    pointerEvents: 'none'
+                }}
+            />
 
             <div style={{ position: 'relative', zIndex: 1 }}>
                 {/* Hero Section */}
                 <section style={{
-                    padding: '8rem 2rem 4rem',
+                    padding: '6rem 2rem 2rem',
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
@@ -66,7 +79,7 @@ export default function RequestsStudioPage() {
                         transition={{ duration: 0.8 }}
                         style={{ width: '100%', maxWidth: '1100px' }}
                     >
-                        <div style={{ marginBottom: '2rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
+                        <div style={{ marginBottom: '1.5rem', width: '100%', display: 'flex', justifyContent: 'center' }}>
                             <img
                                 src={`${import.meta.env.BASE_URL}examples/RequestsStudio/Requests-studio-banner.png`}
                                 alt="Requests Studio"
@@ -74,40 +87,41 @@ export default function RequestsStudioPage() {
                                     width: '100%',
                                     maxWidth: '1000px',
                                     height: 'auto',
-                                    display: 'block'
+                                    display: 'block',
+                                    filter: 'drop-shadow(0 0 50px rgba(139, 92, 246, 0.15))'
                                 }}
                             />
                         </div>
 
                         <p style={{
-                            fontSize: '1.4rem',
-                            maxWidth: '800px',
+                            fontSize: '1.25rem',
+                            maxWidth: '750px',
                             color: '#94a3b8',
-                            margin: '0 auto 3rem',
+                            margin: '0 auto 2.5rem',
                             lineHeight: 1.6,
                             fontWeight: 450
                         }}>
                             An modern, extensible desktop API client built with Pytron-kit. <br />
-                            Powered by <span style={{ color: '#a78bfa' }}>Python</span> logic and <span style={{ color: '#22d3ee' }}>React</span> interface.
+                            Powered by <span style={{ color: '#a78bfa', fontWeight: 600 }}>Requests</span> & <span style={{ color: '#22d3ee', fontWeight: 600 }}>React</span>.
                         </p>
 
-                        <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
                             <a href="https://github.com/Ghua8088/Requests-Studio" target="_blank" className="btn-primary" style={{
-                                padding: '1rem 3rem',
-                                borderRadius: '1rem',
+                                padding: '0.9rem 2.5rem',
+                                borderRadius: '0.75rem',
                                 background: 'linear-gradient(135deg, #8b5cf6, #7c3aed)',
                                 color: 'white',
                                 textDecoration: 'none',
                                 fontWeight: 700,
-                                boxShadow: '0 10px 40px rgba(139, 92, 246, 0.3)',
-                                display: 'flex', alignItems: 'center', gap: '0.75rem',
+                                boxShadow: '0 10px 30px rgba(139, 92, 246, 0.3)',
+                                display: 'flex', alignItems: 'center', gap: '0.5rem',
                                 border: '1px solid rgba(255,255,255,0.1)'
                             }}>
-                                <Github size={22} /> View on GitHub
+                                <Github size={20} /> View Source
                             </a>
                             <Link to="/docs" style={{
-                                padding: '1rem 3rem',
-                                borderRadius: '1rem',
+                                padding: '0.9rem 2.5rem',
+                                borderRadius: '0.75rem',
                                 background: 'rgba(255,255,255,0.03)',
                                 color: 'white',
                                 textDecoration: 'none',
@@ -122,62 +136,63 @@ export default function RequestsStudioPage() {
                 </section>
 
                 {/* Features Grid */}
-                <section style={{ padding: '6rem 2rem', maxWidth: '1400px', margin: '0 auto' }}>
+                <section style={{ padding: '4rem 2rem', maxWidth: '1400px', margin: '0 auto' }}>
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
                         gap: '2rem'
                     }}>
                         <FeatureCard
-                            icon={<Send color="#8b5cf6" size={28} />}
+                            icon={<Send size={24} />}
                             title="Send HTTP Requests"
-                            desc="Full support for GET, POST, PUT, DELETE, and other custom methods via the robust Python requests library."
+                            desc="Support for GET, POST, PUT, DELETE, and other methods using the 'requests' library."
                             accent="#8b5cf6"
                         />
                         <FeatureCard
-                            icon={<Database color="#22d3ee" size={28} />}
+                            icon={<Database size={24} />}
                             title="Request Collections"
-                            desc="Stay organized. Group your endpoints into collections and save them for instant access later."
+                            desc="Organize and save your API requests in collections for easy reuse."
                             accent="#22d3ee"
                         />
                         <FeatureCard
-                            icon={<Code color="#f472b6" size={28} />}
+                            icon={<Code size={24} />}
                             title="Response Viewer"
-                            desc="Analyze payloads with a dedicated JSON/XML viewer featuring theme-aware syntax highlighting."
+                            desc="View and analyze API responses with syntax highlighting."
                             accent="#f472b6"
                         />
                         <FeatureCard
-                            icon={<Terminal color="#60a5fa" size={28} />}
+                            icon={<Terminal size={24} />}
                             title="Console Drawer"
-                            desc="Real-time debugging. Monitor logs, headers, and raw network data in a slide-out console."
+                            desc="Monitor logs and debug information in a dedicated panel."
                             accent="#60a5fa"
                         />
                         <FeatureCard
-                            icon={<Globe color="#34d399" size={28} />}
-                            title="Smart Address Bar"
-                            desc="Quickly input, modify, and manage request URLs with intelligent auto-suggestion and history."
+                            icon={<Globe size={24} />}
+                            title="Address Bar"
+                            desc="Easily input and modify request URLs with auto-suggestion."
                             accent="#34d399"
                         />
                         <FeatureCard
-                            icon={<Menu color="#fbbf24" size={28} />}
+                            icon={<Menu size={24} />}
                             title="Sidebar Navigation"
-                            desc="A seamless, collapsible sidebar designed for intuitive collection management and multi-tasking."
+                            desc="Navigate through your collections and requests with ease."
                             accent="#fbbf24"
                         />
                         <FeatureCard
-                            icon={<Bell color="#f87171" size={28} />}
-                            title="Integrated Notifications"
-                            desc="Get immediate feedback on request success, timeout, or backend errors with native-feel toasts."
+                            icon={<Bell size={24} />}
+                            title="Notifications"
+                            desc="Get feedback on request status and errors via native-feel toasts."
                             accent="#f87171"
                         />
                         <FeatureCard
-                            icon={<Monitor color="#a78bfa" size={28} />}
-                            title="Native Cross-Platform"
-                            desc="One codebase, every OS. Runs natively on Windows, macOS, and Linux with optimized performance."
+                            icon={<Monitor size={24} />}
+                            title="Cross-Platform"
+                            desc="Runs natively on Windows, macOS, and Linux with optimized performance."
                             accent="#a78bfa"
                         />
                     </div>
                 </section>
+
 
                 {/* Installation Guide */}
                 <section style={{ padding: '8rem 2rem' }}>
