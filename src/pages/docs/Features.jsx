@@ -22,8 +22,14 @@ app = App()
 def get_data():
     return {"status": "success", "value": 42}
 
-# Global OS-level Shortcuts
-app.shortcut("Ctrl+Shift+P", lambda: app.toggle_visibility())
+def toggle_app():
+    if app.is_visible:
+        app.hide()
+    else:
+        app.show()
+
+# Global OS-level Shortcut
+app.shortcut("Ctrl+Shift+P", toggle_app)
 
 app.run()`}</code></pre>
 
